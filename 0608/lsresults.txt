@@ -1,0 +1,7 @@
+a.txt
+aa.txt
+b.txt
+bb.txt
+copied
+lsresults.txt
+sortedb.txt

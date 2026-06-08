@@ -1,0 +1,12 @@
+a.txt
+aa.txt
+b.txt
+bb.txt
+copied
+lsresults.txt
+sortedb.txt
+apple
+apple
+banana
+banana
+orange
