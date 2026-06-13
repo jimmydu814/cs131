@@ -1,14 +1,14 @@
 T1: cd /home/ishigaki-cs30/cs131/ws1 pwd
 T2: ls ../data/
-T3: file logs/app01.log and file .env. They are both ASCII 
+T3: file logs/app01.log and file .env They are both ASCII 
 T4: ls -alhr
 T5: ls logs/ -sr
 T6: size is 1048576 bytes; owner is ishigaki-cs30; last modification time is June 8 10:45
 T7: ls data/Data?.csv
-T8: ls [:upper:] But there is no uupercase letter file.
-T9: ls logs/BACKUP.[[:digit:]][[:digit:]][[:digit:]] pattern is logs/BACKUP.001.
+T8: ls [:upper:]
+T9: ls logs/BACKUP.[[:digit:]][[:digit:]][[:digit:]]
 T10: cp -r data/ backup/
 T11: mv data/readme.txt data/README.md
 T12: rm -ir backup/data/
-T13: git init git add answer.txt git commit -m linux basics challenge 
+T13: git add answer.txt git commit -m linux basics challenge 
 T14: git clone https://github.com/jimmydu814/cs131
