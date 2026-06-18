@@ -1,0 +1,16 @@
+Q1: git add notes.md && git commit -m "ws2: add taskline"
+Q2: git log --oneline -3
+Q3: 59d4596 (HEAD -> main) ws2: bad change
+Q4: git revert 59d4596
+Q5: git rm --cached bigdata.bin | echo 'bigdata.bin' >> .gitignore | git add .gitignore | git commit --amend | git push
+Q6: git switch -c feature-summary
+Q7: printf "#Summary\nThis file was created on the feature-summary branch." > summary.md | git add summary.md | git commit -m "Add summary file"
+Q8: git diff main
+Q9: git switch main | git merge feature-summary
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch ,conflict file is ws2/summary.md
+Q12: git diff --name-only --diff-filter=U
+Q13: I conbined both line
+Q14: git add summary.md | git commit
+Q15: git fetch | git log HEAD..origin/main --oneline
+Q16: git fetch only dowloads update from remote but does not change current branch or file, git pull both download and changes the branch.
