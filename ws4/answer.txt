@@ -10,4 +10,22 @@ mkdirg ()
 
 // This creates a custum bash fuction. It create the directory named by the first argument and then move into that directory
 
+T2: https://github.com/jimmydu814/cs131/blob/main/.bashrc#L2
+
+alias la='ls -a'
+
+// This is an alias for ls's -a option. It list all file including hidden files.
+
+https://github.com/jimmydu814/cs131/blob/main/.bashrc#L5
+
+backup ()
+
+// This is a shell function that creates a backup copy for a file.
+
+https://github.com/jimmydu814/cs131/blob/main/.bashrc#L11
+
+cdd ()
+
+// THis is a shell fuction that go to a diretory if it exists, otherwice create it first then go to it.
+
 

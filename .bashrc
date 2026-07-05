@@ -1,4 +1,4 @@
-# 1. Alias: clear the screen and show current directory
+# 1. Alias: list all files, including hidden files.
 alias la='ls -a'
 
 # 2. Shell function: make a backup copy of a file
