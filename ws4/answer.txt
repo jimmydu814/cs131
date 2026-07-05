@@ -1,0 +1,13 @@
+T1: https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L312
+
+mvg ()
+
+// This function do is  move something, and if the destination is a directory, go into that directory afterward.
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L322
+
+mkdirg ()
+
+// This creates a custum bash fuction. It create the directory named by the first argument and then move into that directory
+
+
