@@ -1,0 +1,13 @@
+List of commend ran for phase 1:
+time du -h backblaze_2024_Q1_Q2.csv: This gets how big the dataset is. Time: 0.005
+time wc -l backblaze_2024_Q1_Q2.csv: This gets how many rows. Time:33.435
+time head backblaze_2024_Q1_Q2.csv: This shows the first 10 rows. Time: 0.006
+time tail backblaze_2024_Q1_Q2.csv: This shows the last 10 rows. Time: 0.006
+time head -5 backblaze_2024_Q1_Q2.csv | cut -d',' -f1,3,4,5,27,121 | column -t -s ',': This cuts only the columns I need and makes it readable like a table. Time spent is 0.008
+time cut -d',' -f4 backblaze_2024_Q1_Q2.csv | sort | uniq -c | sort -nr | head -5: This get most common capacity. Time spent is 2:42.60
+time cut -d',' -f3 backblaze_2024_Q1_Q2.csv | sort | uniq -c | sort -nr | head -5: This gets most common model. Time spent is 2:23.62
+time awk -F',' 'NR>1 && $4>0 {v=$4; if (n==0 || v<min) min=v; if (v>max) max=v; sum+=v; n++} END {print min, max, sum/n}' backblaze_2024_Q1_Q2.csv :This gets min, max, and average capacity in bytes. Time spent is 8:06.57
+time awk -F',' 'NR>1 && $27>0 {v=$27; if (n==0 || v<min) min=v; if (v>max) max=v; sum+=v; n++} END {print min, max, sum/n}' backblaze_2024_Q1_Q2.csv :This gets min, max, and average age in hour. Time: 11:58.19
+time awk -F',' 'NR>1 && $121>0 {v=$121; if (n==0 || v<min) min=v; if (v>max) max=v; sum+=v; n++} END {print min, max, sum/n}' backblaze_2024_Q1_Q2.csv :This gets min, max, and average temperature in C. Time: 11:59.36
+time grep -Ec '^[^,]*,[^,]*,[^,]*,[^,]*,1,' backblaze_2024_Q1_Q2.csv: This counts the number of failures. Time spent is 2:42.34
+
