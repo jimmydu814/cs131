@@ -1,0 +1,90 @@
+Batch [07de47d0850b4f25b86c7d3c45729781] submitted.
+WARNING: No runtime version specified. Using the default runtime version. It is recommended to select a specific major.minor runtime version in production, as the default runtime version may change at any time.
+Using the default container image
+Waiting for container log creation
+PYSPARK_PYTHON=/opt/dataproc/conda/bin/python
+Generating /home/spark/.pip/pip.conf
+Configuring index-url as 'https://us-python.pkg.dev/artifact-registry-python-cache/virtual-python/simple/'
+JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+SPARK_EXTRA_CLASSPATH=
+:: loading settings :: file = /etc/spark/conf/ivysettings.xml
+26/07/22 22:07:10 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-google-hadoop-file-system.properties,hadoop-metrics2.properties
+26/07/22 22:07:10 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/07/22 22:07:10 INFO MetricsSystemImpl: google-hadoop-file-system metrics system started
++----------+----+------+------+---+------+----+
+|total_bill| tip|   sex|smoker|day|  time|size|
++----------+----+------+------+---+------+----+
+|     16.99|1.01|Female|    No|Sun|Dinner|   2|
+|     10.34|1.66|  Male|    No|Sun|Dinner|   3|
+|     21.01| 3.5|  Male|    No|Sun|Dinner|   3|
+|     23.68|3.31|  Male|    No|Sun|Dinner|   2|
+|     24.59|3.61|Female|    No|Sun|Dinner|   4|
+|     25.29|4.71|  Male|    No|Sun|Dinner|   4|
+|      8.77| 2.0|  Male|    No|Sun|Dinner|   2|
+|     26.88|3.12|  Male|    No|Sun|Dinner|   4|
+|     15.04|1.96|  Male|    No|Sun|Dinner|   2|
+|     14.78|3.23|  Male|    No|Sun|Dinner|   2|
+|     10.27|1.71|  Male|    No|Sun|Dinner|   2|
+|     35.26| 5.0|Female|    No|Sun|Dinner|   4|
+|     15.42|1.57|  Male|    No|Sun|Dinner|   2|
+|     18.43| 3.0|  Male|    No|Sun|Dinner|   4|
+|     14.83|3.02|Female|    No|Sun|Dinner|   2|
+|     21.58|3.92|  Male|    No|Sun|Dinner|   2|
+|     10.33|1.67|Female|    No|Sun|Dinner|   3|
+|     16.29|3.71|  Male|    No|Sun|Dinner|   3|
+|     16.97| 3.5|Female|    No|Sun|Dinner|   3|
+|     20.65|3.35|  Male|    No|Sat|Dinner|   3|
++----------+----+------+------+---+------+----+
+only showing top 20 rows
+
+There are 203 rows in the raining set, and 41 in the test set
+26/07/22 22:07:28 WARN Instrumentation: [b76ab269] regParam is zero, which might cause numerical instability and overfitting.
+26/07/22 22:07:31 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
++----------+----+----+------------------+
+|total_bill|size| tip|        prediction|
++----------+----+----+------------------+
+|      5.75|   2| 1.0| 1.585986182428766|
+|      7.25|   2|5.15| 1.721531453618063|
+|      7.74|   2|1.44|1.7658095755399001|
+|      8.58|   1|1.92|1.5905431776953218|
+|       9.6|   2| 4.0|1.9338857118146282|
+|      9.94|   2|1.56|1.9646093066175356|
+|     11.17|   2| 1.5| 2.075756428992759|
+|     11.38|   2| 2.0| 2.094732766959261|
+|     11.69|   2|2.31|2.1227454563383823|
+|     11.87|   2|1.63|2.1390108888810975|
+|     12.76|   2|2.23|2.2194344164534137|
+|      12.9|   2| 1.1|2.2320853084310817|
+|      13.0|   2| 2.0| 2.241121659843701|
+|     13.03|   2| 2.0|2.2438325652674873|
+|     13.42|   2|1.58|2.2790743357767047|
+|     13.51|   2| 2.0|2.2872070520480623|
+|     13.81|   2| 2.0|2.3143161062859217|
+|     13.94|   2|3.06|2.3260633631223273|
+|     14.07|   2| 2.5|2.3378106199587334|
+|     14.73|   2| 2.2|2.3974505392820236|
++----------+----+----+------------------+
+only showing top 20 rows
+
+Coefficients: [0.09036351412619796,0.25117174971058465]
+Intercept: 0.5640524767819586
+RMSE: 1.085549331575004
+R2: 0.28926207284329175
+Batch [07de47d0850b4f25b86c7d3c45729781] finished.
+metadata:
+  '@type': type.googleapis.com/google.cloud.dataproc.v1.BatchOperationMetadata
+  batch: projects/peerless-rite-499516-e4/locations/us-central1/batches/07de47d0850b4f25b86c7d3c45729781
+  batchUuid: c0c2fd01-665a-42d8-8a11-89bf47dcf4f9
+  createTime: '2026-07-22T22:05:35.680867Z'
+  description: Batch
+  labels:
+    goog-dataproc-batch-id: 07de47d0850b4f25b86c7d3c45729781
+    goog-dataproc-batch-uuid: c0c2fd01-665a-42d8-8a11-89bf47dcf4f9
+    goog-dataproc-drz-resource-uuid: batch-c0c2fd01-665a-42d8-8a11-89bf47dcf4f9
+    goog-dataproc-location: us-central1
+  operationType: BATCH
+  warnings:
+  - No runtime version specified. Using the default runtime version. It is recommended
+    to select a specific major.minor runtime version in production, as the default
+    runtime version may change at any time.
+name: projects/peerless-rite-499516-e4/regions/us-central1/operations/b07a4c7b-3c28-38d2-92db-31ccbc0c15e4
