@@ -1,0 +1,61 @@
+﻿PHASE 2 - THE BREAKING POINT
+
+Dataset: Backblaze Hard Drive Stats, 2024 Q1. 91 daily CSV files, 193 columns,
+9.76 GB once extracted.
+Machine: Windows 11 laptop, 16 GB RAM, Samsung 990 Pro NVMe.
+
+
+EXCEL
+
+I made a test file by sticking the first 5 daily CSVs together (2024-01-01
+through 2024-01-05). That came out to 1,373,204 lines, so 1 header row plus
+1,373,203 rows of data, 508 MB on disk.
+
+Excel broke in two different ways when I opened it. The first is the row cap.
+It threw up "This data set is too large for the Excel grid. If you save this
+workbook, you'll lose data that wasn't loaded." and when I hit Ctrl+End it
+jumped to XFD1048576, which is the very last cell in the grid. Excel maxes out
+at 1,048,576 rows and the header eats one of those, so only 1,048,575 data rows
+actually made it in and 324,628 rows just got dropped. Screenshots are
+excel_error.png and excel_rowcap.png.
+
+The second problem is that the rows it did load came in wrong. capacity_bytes
+went from 6001175126016 to 6E+12, and Excel asked if I wanted to keep that
+conversion permanently. Even if the file had fit, the numbers would be garbage.
+
+And this was only 5 days out of 91. The full quarter is around 25 million rows
+and the Q1+Q2 file we profiled is 51,211,483 rows, so Excel is short by about
+24x on the quarter and 49x on the full thing.
+
+
+PANDAS
+
+Script is break_pandas.py, running pandas 3.0.5 on Python 3.13.7. It reads all
+91 daily files one at a time into a list, prints the running row count and
+elapsed time after each one, then calls pd.concat at the end.
+
+It never got to the concat. The parser died partway through file 78:
+
+  [78/91] 2024-03-18.csv  rows=21,514,761  elapsed=267.2s
+  pandas.errors.ParserError: Error tokenizing data. C error: out of memory
+
+So it got through 78 of 91 files and 21.5 million of the roughly 25 million rows
+before running out of memory, 4 minutes and 27 seconds in. Task Manager had
+system memory sitting at 93-95% the whole time and the Python process was at
+6.7 GB by file 49 and still going up. Screenshot is pandas_oom.png.
+
+
+WHY THEY BREAK
+
+Excel and pandas both want the whole dataset in memory before you can touch it,
+so how much data you can handle is capped by your RAM, and Excel has that hard
+grid limit on top of it. The command line tools from Phase 1 read the file one
+line at a time and only keep one line around, which is why awk and grep chewed
+through all 51 million rows on similar hardware without dying. They were slow,
+8 to 12 minutes for an awk pass over a full column, but they finished.
+
+
+STILL TO DO
+
+Run the same aggregation both ways, command line versus PySpark on the whole
+dataset, and put both runtimes here. Waiting on the Phase 3 GCP setup.
